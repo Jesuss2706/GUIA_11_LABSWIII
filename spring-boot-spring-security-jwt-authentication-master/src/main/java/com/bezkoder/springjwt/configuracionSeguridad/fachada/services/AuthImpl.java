@@ -96,6 +96,12 @@ public class AuthImpl implements AuthInt{
                         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
                             .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(userRole);
+                    case "auditor":
+                        Role auditorRole = roleRepository.findByName(ERole.ROLE_AUDITOR)
+                        .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(auditorRole);
+                    break;
+
                 }
             });
         }
